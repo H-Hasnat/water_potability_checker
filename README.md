@@ -2,6 +2,12 @@
 
 This project aims to predict whether water is safe for human consumption based on its chemical properties. I have explored multiple machine learning models and optimized them to ensure reliable safety predictions.
 
+
+---
+## 📓 Interactive Notebook
+You can explore the complete analysis, data preprocessing, and model training steps directly in Google Colab:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UFiVqW9XDY0UbJ0MR-jqfEXHJJ7hHGJ3?usp=sharing)
 ---
 
 ## 🏗️ 1. Initial Exploration (Model Selection)
