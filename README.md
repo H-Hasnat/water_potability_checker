@@ -1,40 +1,50 @@
-💧 Water Potability Prediction Project
-This project aims to predict the potability of water based on its chemical properties using various Machine Learning classification techniques. The primary focus was on achieving a high-performance model while maintaining a balance between Precision and Recall through advanced optimization.
+# 💧 Water Potability Prediction Project
 
-🚀 Project Workflow
-1. Initial Model Exploration
-To find the best-performing algorithm, I initially experimented with a wide range of classification models:
+This project aims to predict whether water is safe for human consumption based on its chemical properties. I have explored multiple machine learning models and optimized them to ensure reliable safety predictions.
 
-Linear Models: Logistic Regression
+---
 
-Tree-Based Models: Decision Tree, Random Forest, Gradient Boosting, XGBoost
+## 🏗️ 1. Initial Exploration (Model Selection)
+At the beginning of the project, I trained and evaluated a diverse set of classification models to establish a baseline:
 
-Distance/Kernel Models: KNN, Support Vector Machine (SVM)
+* **Linear Models:** Logistic Regression
+* **Tree-Based Models:** Random Forest, Decision Tree, Gradient Boosting
+* **Kernel Models:** SVM (Support Vector Machine)
+* **Distance Models:** KNN (K-Neighbors Classifier)
+* **Ensemble Methods:** Stacking and Voting Classifiers
+* **Advanced Boosting:** XGBoost
 
-Ensemble Methods: Stacking and Voting Classifiers
 
-2. Model Selection & Optimization
-After evaluating the initial results, XGBoost and Random Forest were selected as the primary candidates due to their superior performance. I then performed:
 
-K-Fold Cross-Validation: To ensure the stability and reliability of the scores across different data splits.
+---
 
-Hyperparameter Tuning: Systematic adjustment of parameters (like max_depth, n_estimators, and learning_rate) to maximize the models' predictive power.
+## 🛠️ 2. Optimization & Refining
+After the primary testing, I selected **XGBoost** and **Random Forest** for further development. To improve the results, I performed:
+1.  **Cross-Validation:** To verify model stability across different data splits.
+2.  **Hyperparameter Tuning:** Systematically adjusting parameters to find the best configuration.
 
-3. Handling Class Imbalance
-During evaluation, I noticed a significant discrepancy in the Recall scores between Class 0 (Unsafe) and Class 1 (Safe). To solve this class imbalance, I implemented:
+---
 
-SMOTE (Synthetic Minority Over-sampling Technique): To synthetically generate samples for the minority class.
+## ⚖️ 3. Solving Class Imbalance (SMOTE)
+During evaluation, I noticed that the **Recall** scores for Class 0 (Unsafe) and Class 1 (Safe) were inconsistent. To fix this:
+* Used **SMOTE** (Synthetic Minority Over-sampling Technique) to balance the dataset.
+* Implemented **ImbPipeline** (Imbalanced-learn Pipeline) to ensure proper preprocessing without data leakage.
 
-Imbalanced-learn Pipeline (ImbPipeline): To ensure that over-sampling only occurred during training, preventing data leakage into the validation sets.
 
-4. Threshold Tuning & Final Performance
-To further enhance the model's reliability—specifically to minimize the risk of predicting unsafe water as safe—I performed Probability Threshold Tuning.
 
-By adjusting the decision threshold from the default 0.5 to 0.52, I achieved the optimal balance for the XGBoost model, which emerged as the final best-performing model for this project.
+---
 
-📊 Key Results
-Final Model: Tuned XGBoost
+## 🎯 4. Final Performance & Threshold Tuning
+The final step was to maximize the model's reliability. I focused on **Probability Threshold Tuning** for the XGBoost model. 
+* **Best Threshold:** `0.52`
+* **Conclusion:** After tuning, **XGBoost** emerged as the best-performing model, providing a balanced F1-score and higher accuracy.
 
-Best Threshold: 0.52
 
-Key Performance Metrics: Improved F1-Score and balanced Recall across both classes.
+
+---
+
+## 📊 Evaluation Summary
+| Model | Optimization | Result |
+| :--- | :--- | :--- |
+| **XGBoost** | SMOTE + Threshold Tuning | **Best Performance** |
+| **Random Forest** | Hyperparameter Tuning | Stable Performance |
